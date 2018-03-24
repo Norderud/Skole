@@ -1,0 +1,23 @@
+canvas {
+	border: 1px solid black;
+	height: 300px;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+h1 {
+	text-align: center;
+	font-family: helvetica;
+}
+button {
+	width: 50px;
+	height: 20px;
+}
+#boks {
+	height: 500px;
+	width: 800px;
+	background-color: #b3ccff;
+	margin-left: auto;
+	margin-right: auto;
+}

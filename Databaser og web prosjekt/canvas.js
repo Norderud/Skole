@@ -7,22 +7,33 @@ class Slot {
 }
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext('2d');
+c.font = "30px Arial";
 
+var teller;
+var id;
+var sum;
 
-var slot1 = new Slot(20, 40);
-var slot2 = new Slot(110, 40);
-var slot3 = new Slot(200, 40);
-
+var slot1 = new Slot(20, 30);
+var slot2 = new Slot(145, 30);
+var slot3 = new Slot(270, 30);
 tegnSlot(slot1);
-	animer();
+tegnSlot(slot2);
+tegnSlot(slot3);
 
-function spill(mynter){
-	var resultat;
-	slot1.symbol = randomSymbol();
-	slot2.symbol = randomSymbol();
-	slot3.symbol = randomSymbol();
-	console.log();
-	tegnSlot(slot1);
+
+function spill(){
+	c.clearRect(0, 0, canvas.width, canvas.height);
+	var radioknapper = document.getElementsByName('toggle');
+	for (var i = 0, length = radioknapper.length; i < length; i++)
+	{
+		if (radioknapper[i].checked)
+		{
+			sum = radioknapper[i].value;
+			break;
+		}
+	}
+	teller = 0;
+	animer();
 }
 function randomSymbol(){
 	var random = Math.floor(Math.random()*100);
@@ -45,16 +56,24 @@ function randomSymbol(){
 	return symbol;
 }
 function animer(){
-	setTimeout(function(){
-	requestAnimationFrame(animer);
-	spill(10);
-	tegnSlot(slot1);
-	console.log(slot1.symbol);
-	}, 1000/5);
+	id = setInterval(spin, 150);
 
 }
+function spin(){
+	if(teller == 10){
+		clearInterval(id);
+		resultat();
+	} else {
+		slot1.symbol = randomSymbol();
+		slot2.symbol = randomSymbol();
+		slot3.symbol = randomSymbol();
+		tegnSlot(slot1);
+		tegnSlot(slot2);
+		tegnSlot(slot3);
+		teller++;
+	}
+}
 function tegnSlot(slot){
-	console.log(slot.symbol);
 	var farge;
 	switch(slot.symbol){
 		case 1: farge = 'blue'; break;
@@ -66,6 +85,44 @@ function tegnSlot(slot){
 		case 7: farge = 'orange';
 	}
 	c.fillStyle = farge;
-	c.fillRect(slot.x, slot.y, 80, 70);
-
+	c.fillRect(slot.x, slot.y, 110, 130);
+}
+function resultat(){
+	var gevinst = 0;
+	var resultat = [slot1.symbol, slot2.symbol, slot3.symbol];
+	if(slot1.symbol == slot2.symbol && slot1.symbol == slot3.symbol){
+		gevinst = treLike(slot1.symbol);
+	} else if( slot1.symbol == slot2.symbol){
+		gevinst = toLike(slot1.symbol);
+	} else if (slot3.symbol == 7) {
+		gevinst = sum*2;
+	}
+	c.fillStyle = "black";
+	c.fillText("Du vant " + gevinst +"kr!", 100, 200);
+}
+function treLike(symbol){
+	var x;
+	switch(symbol){
+		case 1: x = sum*3; break;
+		case 2: x = sum*6; break; 
+		case 3: x = sum*12; break; 
+		case 4: x = sum*24; break; 
+		case 5: x = sum*48; break; 
+		case 6: x = sum*96; break; 
+		case 7: x = sum*192; break;
+	}
+	return x;
+}
+function toLike(symbol){
+	var x;
+	switch(symbol){
+		case 1: x = sum*1.5; break;
+		case 2: x = sum*3; break; 
+		case 3: x = sum*4; break; 
+		case 4: x = sum*5; break; 
+		case 5: x = sum*10; break; 
+		case 6: x = sum*15; break; 
+		case 7: x = sum*20; break;
+	}
+	return x;
 }

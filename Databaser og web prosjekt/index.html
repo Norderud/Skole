@@ -8,8 +8,15 @@
 <body>
 	<div id="boks">
 		<h1> Spilleautomat </h1>
-		<canvas></canvas>
-		<button type="button" onclick="spill(10)">Start</button>
+		<canvas width ="400" height="250"></canvas>
+		<div id="knapper">
+			<button type="button" onclick="spill()"><span>Start</span></button>
+			<label><input type="radio" name="toggle" value="5" checked="checked"><span>5kr</span></label>
+			<label><input type="radio" name="toggle" value="10"><span>10kr</span></label>
+			<label><input type="radio" name="toggle" value="20"><span>20kr</span></label>
+			<label><input type="radio" name="toggle" value="50"><span>50kr</span></label>
+			<label><input type="radio" name="toggle" value="100"><span>100kr</span></label>
+		</div>
 	</div>
 	<script src="canvas.js"></script>
 </body>

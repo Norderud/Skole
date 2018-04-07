@@ -1,0 +1,408 @@
+/* Core Styles */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #333;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: center;
+  font-family:monospace;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 1em 0;
+}
+
+p {
+  margin: 0;
+  padding: 1em 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 1px solid #666;
+  margin: 0.5em 0;
+}
+
+.btn:hover {
+  background: #eaeaea;
+  color: #333;
+}
+
+/* Sticky topNavigationBar */
+.wrapper {
+  background: #000;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+
+
+}
+.btn-nav {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 1px solid #666;
+  margin:0;
+  opacity: 0.7;
+}
+.btn-nav:hover {
+  opacity: 1;
+  color: white;
+}
+
+.topLink {
+  color: white;
+  text-decoration: none;
+}
+
+/* NAV-bar */
+.top-sticky-bar{
+  overflow: hidden;
+  background-color: #000;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  height: 60px;
+}
+.top-sticky-bar img{
+  position: fixed;
+  left: 0;
+}
+
+.nav-btn {
+  background: #484848;
+  border: black;
+  border-radius: 0.2em;
+  color: white;
+  padding: 7px 0;
+  width: 100px;
+  text-align: center;
+  margin: 1em;
+  transition: 1s ease;
+  display: inline-block;
+  float: right;
+}
+.tmp-btn {
+  background: #be222b;
+}
+.nav-btn:hover {
+  transition: 1s ease;
+  background: black;
+  color: red;
+}
+input[type=text] {
+  background:#fff url(bilder/searchicon.png);
+  background-repeat: no-repeat;
+  text-align: center;
+  float: right;
+  margin: 1em;
+  padding: 7px 0;
+  color: #000;
+  border: black;
+  border-radius: 0.2em;
+}
+a {
+  margin: 1em;
+  text-decoration: none;
+  color: inherit;
+  padding: 7px 0;
+}
+/* Header */
+#header-index {
+  min-height: 450px;
+  color: #fff;
+  text-align: center;
+}
+
+#header-index .bg-image {
+  position: absolute;
+  background: #333
+    url('https://images.pexels.com/photos/5258/addiction-bet-betting-casino.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+#header-index h1 {
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+#header-index .content-wrap,
+#section-a .content-wrap {
+  padding: 0 1.5em;
+}
+
+/* Section A */
+
+#section-a {
+  background: #eaeaea;
+  color: #333;
+  padding-bottom: 2em;
+}
+
+/* Section B */
+
+#section-b {
+  padding: 2em 1em 1em;
+}
+
+
+#section-b ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#section-b li {
+  margin-bottom: 1em;
+  background: #fff;
+
+
+}
+#section-b a {
+  text-decoration: none;
+  color: #333;
+}
+.card-spill img:hover {
+  opacity: 0.9;
+}
+
+.card-content {
+  padding: 1.5em;
+}
+
+/* Section C */
+
+#section-c{
+  background: #fff;
+  color: #333;
+  padding: 2em;
+}
+
+/* Footer */
+#bottomNavBar {
+  margin-top: 1em;
+}
+#bottomNavBar a{
+  color: white;
+  text-decoration: none;
+
+}
+
+#socialFooter img{
+  width: 50px;
+  display: inline-block;
+  margin: 0.5em;
+}
+.content-main {
+  width: 100%;
+  background: #eee;
+  color: black;
+  margin-top: 3em;
+}
+.content-main a {
+  text-decoration: none;
+  font-style: italic;
+  color: #000;
+}
+.content-main a:hover {
+  text-decoration: underline;
+}
+.max-width-img {
+  position: absolute;
+  background: #333
+    url('https://images.pexels.com/photos/296881/pexels-photo-296881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  opacity: 1;
+}
+
+/* Media Queries */ /* Media Queries */ /* Media Queries */ /* Media Queries */
+
+@media (min-width: 700px) {
+
+/* Grids */ /* Grids *//* Grids *//* Grids *//* Grids *//* Grids */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+  }
+
+  #section-a .content-text {
+  columns: 2/3;
+  column-gap: 2em;
+  }
+
+  #section-a .content-text p {
+  padding-top: 0;
+  }
+
+  .content-wrap,
+  #section-b ul {
+  grid-column: 2/4;
+  }
+
+  #section-b ul {
+  display: flex;
+  justify-content: space-around;
+  }
+
+  #section-b li {
+  width: 31%;
+  }
+  #section-a-AboutUs .content-text {
+  columns: 1;
+  column-gap:0.5em;
+
+  }
+
+/* Grid - About us */
+
+#section-b-AboutUs ul {
+grid-column: 1/5;
+grid-gap: 1em;
+
+}
+#section-b-AboutUs ul {
+display: flex;
+justify-content: space-around;
+}
+
+#section-b-AboutUs li {
+width:  15%;
+  }
+
+}
+
+/* Om oss spesific code per page */
+#section-b-AboutUs {
+  padding: 2em 1em 1em;
+}
+#section-b-AboutUs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#section-b-AboutUs li {
+  margin-bottom: 1em;
+  background: #fff;
+  color: #333;
+}
+#section-c-AboutUs{
+  background: #fff;
+  color: #333;
+  padding: 2em;
+}
+#section-a-AboutUs {
+  background: #eaeaea;
+  color: #333;
+  padding-bottom: 2em;
+
+}
+
+/* forms */
+.form-container {
+
+}
+
+.form-design {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.btn-form {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 1px solid #666;
+  margin: 0.5em 0;
+  border-radius: 4px;
+}
+canvas {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: 1;
+}
+h1 {
+  text-align: center;
+}
+#boks {
+  font-family: helvetica;
+  height: 500px;
+  width: 800px;
+  background-color: lightblue;
+  margin-left: auto;
+  margin-right: auto;
+}
+#knapper {
+  margin:4px;
+  float:left;
+}
+#knapper button {
+  float:left;
+  width:80px;
+  margin:4px;
+  background-color:#ff1a1a;
+  border-radius:4px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+}
+#knapper span{
+  text-align:center;
+  font-size: 20px;
+  padding:8px 0px;
+  display:block;
+}
+#knapper label {
+  float:left;
+  width:80px;
+  margin:4px;
+  background-color:#EFEFEF;
+  border-radius:4px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+}
+
+#knapper label input {
+  position:absolute;
+  top:-20px;
+}
+
+#knapper input:checked + span {
+  background-color:#404040;
+  color:#F7F7F7;
+}

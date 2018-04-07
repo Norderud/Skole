@@ -1,0 +1,107 @@
+.header {
+  width: 50%;
+  margin: auto;
+  color: white;
+  background: #5F9EA0;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+  margin-top: 20px;
+}
+form, .content {
+  width: 50%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+}
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5F9EA0;
+  border: none;
+  border-radius: 5px;
+}
+.error {
+  width: 92%;
+  margin: 0px auto;
+  padding: 10px;
+  border: 1px solid #a94442;
+  color: #a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  text-align: left;
+}
+.success {
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+#kron_mynt{
+	position: relative;
+	height: 360px;
+	top: 20px;
+	margin: auto;
+	width: 70%;
+	background-color: #f8f8f8;
+	padding: 5px;
+}
+.header h1{
+  margin: 0;
+}
+
+.leftBox{
+    width: 20%;
+    height: 500px;
+    float:left; /* add this */
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    //background-color: rgba(200,200,200,0.3);
+    border: 1px solid #5F9EA0;
+    box-shadow: 5px 10px 8px #888888;
+}
+.leftBox a{
+    text-decoration: none;
+    color: #008CBA;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+.leftBox a:hover{
+    text-decoration: underline;
+}
+.leftBox ul li{
+    margin-top: 5px;
+}
+.leftBox ul li a{
+    text-decoration: none;
+    font-size: 1.1em;
+    color: black;
+    font-weight: bold;
+}
+
+.tilbake{
+  margin-top: -50px;
+}

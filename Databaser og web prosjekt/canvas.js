@@ -1,26 +1,58 @@
 class Slot {
-	constructor(x, y) {
+	constructor(x, y, maxSpin) {
 		this.x = x;
 		this.y = y;
+		this.maxSpin = maxSpin;
 		this.symbol = 1;
+		this.teller = 0;
+	}
+	spin(){
+		console.log(this.maxSpin);
+		if(this.teller >= this.maxSpin){
+			clearInterval(id);
+		} else {
+			this.symbol = randomSymbol();
+			this.teller++;
+		}
+		console.log(this.teller);
+	}
+	static tegnSlot(slot){
+		var img = new Image();
+		switch(slot.symbol){
+			case 1: img.src = 'spilleautomat/bilder/firkløver.png'; break;
+			case 2: img.src = 'spilleautomat/bilder/hestesko.png'; break;
+			case 3: img.src = 'spilleautomat/bilder/chip.png'; break;
+			case 4: img.src = 'spilleautomat/bilder/ess.png'; break;
+			case 5: img.src = 'spilleautomat/bilder/mynter.png'; break;
+			case 6: img.src = 'spilleautomat/bilder/diamant.png'; break;
+			case 7: img.src = 'spilleautomat/bilder/pengesekk.png';
+		}
+		img.onload = function(){
+			c.drawImage(img, slot.x, slot.y, 170, 170);
+		}
 	}
 }
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext('2d');
+c.imageSmoothingEnabled = false;
 c.font = "30px Arial";
 
-var teller;
-var id;
+var id1;
+var id2;
+var id3;
 var sum;
 
-var slot1 = new Slot(20, 30);
-var slot2 = new Slot(145, 30);
-var slot3 = new Slot(270, 30);
-tegnSlot(slot1);
-tegnSlot(slot2);
-tegnSlot(slot3);
+var slot1 = new Slot(20, 30, 10);
+var slot2 = new Slot(215, 30, 20);
+var slot3 = new Slot(400, 30, 30);
+oppstart();
 
-
+function oppstart(){
+	c.clearRect(0, 0, canvas.width, canvas.height);
+	Slot.tegnSlot(slot1);
+	Slot.tegnSlot(slot2);
+	Slot.tegnSlot(slot3);
+}
 function spill(){
 	c.clearRect(0, 0, canvas.width, canvas.height);
 	var radioknapper = document.getElementsByName('toggle');
@@ -32,7 +64,6 @@ function spill(){
 			break;
 		}
 	}
-	teller = 0;
 	animer();
 }
 function randomSymbol(){
@@ -56,36 +87,16 @@ function randomSymbol(){
 	return symbol;
 }
 function animer(){
-	id = setInterval(spin, 150);
+	id1 = setInterval(function(){
+		slot1.spin();
+	},200);
+	id2 = setInterval(function(){
+		slot2.spin();
+	},200);
+	id3 = setInterval(function(){
+		slot3.spin();
+	},200);
 
-}
-function spin(){
-	if(teller == 10){
-		clearInterval(id);
-		resultat();
-	} else {
-		slot1.symbol = randomSymbol();
-		slot2.symbol = randomSymbol();
-		slot3.symbol = randomSymbol();
-		tegnSlot(slot1);
-		tegnSlot(slot2);
-		tegnSlot(slot3);
-		teller++;
-	}
-}
-function tegnSlot(slot){
-	var farge;
-	switch(slot.symbol){
-		case 1: farge = 'blue'; break;
-		case 2: farge = 'purple'; break;
-		case 3: farge = 'red'; break;
-		case 4: farge = 'yellow'; break;
-		case 5: farge = 'pink'; break;
-		case 6: farge = 'green'; break;
-		case 7: farge = 'orange';
-	}
-	c.fillStyle = farge;
-	c.fillRect(slot.x, slot.y, 110, 130);
 }
 function resultat(){
 	var gevinst = 0;
@@ -98,7 +109,7 @@ function resultat(){
 		gevinst = sum*2;
 	}
 	c.fillStyle = "black";
-	c.fillText("Du vant " + gevinst +"kr!", 100, 200);
+	c.fillText("Du vant s " + gevinst +"kr!", 20, 240);
 }
 function treLike(symbol){
 	var x;
